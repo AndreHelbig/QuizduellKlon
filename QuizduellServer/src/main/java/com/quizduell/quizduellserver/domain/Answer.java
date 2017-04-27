@@ -8,6 +8,8 @@ package com.quizduell.quizduellserver.domain;
 import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import lombok.Setter;
+import lombok.Getter;
 
 /**
  *
@@ -15,8 +17,14 @@ import javax.persistence.Id;
  */
 @Entity
 public class Answer {
+    @Getter
+    @Setter
     @Id
     private UUID uuid;
+    @Getter
+    @Setter
     private String text;
+    @Getter
+    @Setter
     private boolean isRight;
 }

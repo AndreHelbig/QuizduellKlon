@@ -6,12 +6,28 @@
 package com.quizduell.quizduellserver.domain;
 
 import java.util.List;
+import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
  * @author Andre
  */
+@Entity
 public class Category {
+    @Getter
+    @Setter
+    @Id
+    private UUID uuid;
+    @Getter
+    @Setter
     private String name;
+    @Getter
+    @Setter
+    @OneToMany
     private List<Question> questionList;
 }
