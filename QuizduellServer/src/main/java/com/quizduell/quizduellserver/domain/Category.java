@@ -12,12 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.search.annotations.Indexed;
 
 /**
  *
  * @author Andre
  */
 @Entity
+@Indexed
 public class Category {
     @Getter
     @Setter

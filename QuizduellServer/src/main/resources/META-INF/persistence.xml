@@ -4,11 +4,11 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" 
              version="2.0"> 
  
-    <persistence-unit name="cassandra" transaction-type="JTA"> 
+    <persistence-unit name="cassandra" transaction-type="RESOURCE_LOCAL"> 
         <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider> 
         <properties> 
             <property name="hibernate.ogm.datastore.provider" value="cassandra_experimental"/> 
-            <property name="hibernate.ogm.datastore.host" value="localhost:9042"/> 
+            <property name="hibernate.ogm.datastore.host" value="192.168.99.100:9042"/> 
             <property name="hibernate.ogm.datastore.database" value="quizduell"/> 
             <property name="hibernate.ogm.datastore.username" value="cassandra"/> 
             <property name="hibernate.ogm.datastore.password" value="cassandra"/> 

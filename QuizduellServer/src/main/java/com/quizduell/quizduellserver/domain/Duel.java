@@ -13,12 +13,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.search.annotations.Indexed;
 
 /**
  *
  * @author Andre
  */
 @Entity
+@Indexed
 public class Duel {
     private static final int MAX_ROUNDS = 6;
 
@@ -38,4 +40,8 @@ public class Duel {
     @Setter
     @OneToMany
     private List<Turn> turnList;
+    
+    public Duel() {
+        this.uuid = UUID.randomUUID();
+    }
 }

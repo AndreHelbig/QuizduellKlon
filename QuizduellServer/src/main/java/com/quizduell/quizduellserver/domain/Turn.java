@@ -9,16 +9,19 @@ import java.util.List;
 import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.search.annotations.Indexed;
 
 /**
  *
  * @author Andre
  */
 @Entity
+@Indexed
 public class Turn {
     private static final int MAX_QUESTIONS = 3;
 
@@ -50,4 +53,9 @@ public class Turn {
     @Setter
     @OneToMany
     private List<Answer> secondPlayersAnswerList;
+    
+    @Getter
+    @Setter
+    @ManyToOne
+    private Duel duel;
 }
