@@ -10,6 +10,7 @@ import com.quizduell.quizduellserver.domain.Answer;
 import com.quizduell.quizduellserver.domain.Duel;
 import com.quizduell.quizduellserver.domain.Question;
 import com.quizduell.quizduellserver.domain.Turn;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -30,15 +31,16 @@ public class TurnResource extends ServerResource {
         EntityManager entityManager = Manager.getEntityManager();
         Query query = entityManager.createQuery("SELECT m FROM Turn m", Turn.class);
         List<Turn> turnList = query.getResultList();
-
+        
         TurnListJson turnListJson = new TurnListJson();
         turnListJson.turns = new TurnJson[turnList.size()];
-
+        List<TurnJson> list = new ArrayList<TurnJson>();
         for (int i = 0; i < turnList.size(); i++) {
-            turnListJson.turns[i] = TurnJson.fromTurn(turnList.get(i));
+           // turnListJson.turns[i] = TurnJson.fromTurn(turnList.get(i));
+           list.add(TurnJson.fromTurn(turnList.get(i)));
         }
-
-        return new JacksonRepresentation(turnListJson);
+         
+        return new JacksonRepresentation(list);
     }
 
     @Post("json")

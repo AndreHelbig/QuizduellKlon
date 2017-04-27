@@ -26,7 +26,7 @@ public class RestApi {
     public final static String route ="http://localhost:8182/api/";
     
     public Duel[] getDuels() {
-        String url = route +"dueles";
+        String url = route +"duel";
 
         HttpClient client = new DefaultHttpClient();
         HttpGet request = new HttpGet(url);
@@ -44,7 +44,7 @@ public class RestApi {
 
     public Duel createDuel(CreateDuelJson createDuel) {
         HttpClient client = new DefaultHttpClient();
-        HttpPost post = new HttpPost(route +"dueles");
+        HttpPost post = new HttpPost(route +"duel");
         try {
             String json = JsonParser.parseCreateDuel(createDuel);
             if(json == null) return null;
@@ -91,7 +91,7 @@ public class RestApi {
 
     public Turn[] getTurns() {
 
-        String url = route +"turns";
+        String url = route +"turn";
         Turn[] turns = null;
 
         HttpClient client = new DefaultHttpClient();
@@ -111,7 +111,7 @@ public class RestApi {
 
     public boolean createTurn(CreateTurnJson createTurnJson){
         HttpClient client = new DefaultHttpClient();
-        HttpPost post = new HttpPost(route +"turns");
+        HttpPost post = new HttpPost(route +"turn");
         try {
             String json = JsonParser.parseTurn(createTurnJson);
             if(json == null) return false;
